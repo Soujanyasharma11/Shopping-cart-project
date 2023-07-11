@@ -51,7 +51,7 @@ section {
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(24, 74, 183);
   border-radius: 5px;
 }
 
@@ -80,4 +80,48 @@ section {
 
 .product-box i {
   margin-left: 5px;
+}
+
+.quantity-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-btn {
+  background-color: #dfe9ed;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.add-to-cart-btn {
+  background-color: rgb(24, 74, 183);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+  background-color: rgb(6, 51, 130);
+}
+
+
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid rgb(24, 74, 183);
+  border-radius: 5px;
+}
+
+.cart-item img {
+  margin-bottom: 10px;
 }

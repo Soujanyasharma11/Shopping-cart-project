@@ -9,13 +9,14 @@
 </head>
 <body>
   <!--Header-->
-  <header class="header">
-    <nav>
-      <img src="..\images\cart logo.jpg" height="40px" alt="Cart Logo">
-      <a href=" ">Shopping Cart</a>
-      <i class="bx bx-shopping-bag"></i>
-    </nav>
-  </header>
+<header class="header">
+  <nav>
+    <img src="..\images\cart logo.jpg" height="40px" alt="Cart Logo">
+    <a href="home.html">Shopping Cart</a>
+    <i class="bx bx-shopping-bag" onclick="goToCart()"></i>
+  </nav>
+</header>
+
 
   <!--Shopping Section-->
   <section>
@@ -30,9 +31,13 @@
         <div class="price-wrapper">
           <span class="currency">Rs</span>
           <span class="price">1800</span>
-          
-          <i class="bx bx-shopping-bag"></i>
+          <div class="quantity-wrapper">
+            <button class="quantity-btn" onclick="decreaseQuantity(event)">-</button>
+            <span class="quantity">0</span>
+            <button class="quantity-btn" onclick="increaseQuantity(event)">+</button>
+          </div>
         </div>
+        <button class="add-to-cart-btn" onclick="addToCart(event, 'Backpack', 1800)">Add to Cart</button>
       </div>
 
       <div class="product-box">
@@ -42,8 +47,13 @@
         <div class="price-wrapper">
           <span class="currency">Rs</span>
           <span class="price">469</span>
-          <i class="bx bx-shopping-bag"></i>
+          <div class="quantity-wrapper">
+            <button class="quantity-btn" onclick="decreaseQuantity(event)">-</button>
+            <span class="quantity">0</span>
+            <button class="quantity-btn" onclick="increaseQuantity(event)">+</button>
+          </div>
         </div>
+        <button class="add-to-cart-btn" onclick="addToCart(event, 'Women\'s Kurti', 469)">Add to Cart</button>
       </div>
 
       <div class="product-box">
@@ -53,8 +63,13 @@
         <div class="price-wrapper">
           <span class="currency">Rs</span>
           <span class="price">1200</span>
-          <i class="bx bx-shopping-bag"></i>
+          <div class="quantity-wrapper">
+            <button class="quantity-btn" onclick="decreaseQuantity(event)">-</button>
+            <span class="quantity">0</span>
+            <button class="quantity-btn" onclick="increaseQuantity(event)">+</button>
+          </div>
         </div>
+        <button class="add-to-cart-btn" onclick="addToCart(event, 'Girls Frock', 1200)">Add to Cart</button>
       </div>
     </div>
 
@@ -66,8 +81,13 @@
         <div class="price-wrapper">
           <span class="currency">Rs</span>
           <span class="price">1940</span>
-          <i class="bx bx-shopping-bag"></i>
+          <div class="quantity-wrapper">
+            <button class="quantity-btn" onclick="decreaseQuantity(event)">-</button>
+            <span class="quantity">0</span>
+            <button class="quantity-btn" onclick="increaseQuantity(event)">+</button>
+          </div>
         </div>
+        <button class="add-to-cart-btn" onclick="addToCart(event, 'Women\'s Hoodie', 1940)">Add to Cart</button>
       </div>
 
       <div class="product-box">
@@ -77,21 +97,78 @@
         <div class="price-wrapper">
           <span class="currency">Rs</span>
           <span class="price">4999</span>
-          <i class="bx bx-shopping-bag"></i>
+          <div class="quantity-wrapper">
+            <button class="quantity-btn" onclick="decreaseQuantity(event)">-</button>
+            <span class="quantity">0</span>
+            <button class="quantity-btn" onclick="increaseQuantity(event)">+</button>
+          </div>
         </div>
+        <button class="add-to-cart-btn" onclick="addToCart(event, 'Rolex watches Celini edition', 4999)">Add to Cart</button>
       </div>
 
       <div class="product-box">
         <img src="../images/Sweatshirt.jpg" alt="Image Not Found" height="300px" width="250px"/>
         <h3>Mens Sweatshirts</h3>
-        <p> Elevate your casual wardrobe with our premium men's sweatshirts, providing unmatched comfort and effortless style.</p>
+        <p>Elevate your casual wardrobe with our premium men's sweatshirts, providing unmatched comfort and effortless style.</p>
         <div class="price-wrapper">
           <span class="currency">Rs</span>
           <span class="price">600</span>
-          <i class="bx bx-shopping-bag"></i>
+          <div class="quantity-wrapper">
+            <button class="quantity-btn" onclick="decreaseQuantity(event)">-</button>
+            <span class="quantity">0</span>
+            <button class="quantity-btn" onclick="increaseQuantity(event)">+</button>
+          </div>
         </div>
+        <button class="add-to-cart-btn" onclick="addToCart(event, 'Mens Sweatshirts', 600)">Add to Cart</button>
       </div>
     </div>
   </section>
+
+  <script>
+    function increaseQuantity(event) {
+      const quantityElement = event.target.parentElement.querySelector('.quantity');
+      let quantity = parseInt(quantityElement.innerText);
+      quantity++;
+      quantityElement.innerText = quantity;
+    }
+  
+    function decreaseQuantity(event) {
+      const quantityElement = event.target.parentElement.querySelector('.quantity');
+      let quantity = parseInt(quantityElement.innerText);
+      if (quantity > 0) {
+        quantity--;
+        quantityElement.innerText = quantity;
+      }
+    }
+  
+    function addToCart(event, productName, price) {
+      const quantityElement = event.target.parentElement.querySelector('.quantity');
+      quantityElement.innerText = '1'; // Set the quantity to 1
+      const quantity = parseInt(quantityElement.innerText);
+      const total = quantity * price;
+      const product = {
+        name: productName,
+        quantity: quantity,
+        price: price,
+        total: total
+      };
+      
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      const goToCartConfirmed = confirm("Go to Cart?");
+      if (goToCartConfirmed) {
+        window.location.href = 'cart.html';
+      }
+    }
+
+    
+
+    function goToCart() {
+    window.location.href = 'cart.html';
+  }
+  </script>
+  
 </body>
 </html>
+
