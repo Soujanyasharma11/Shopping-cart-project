@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
-    <link rel="stylesheet" href="..\css\style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="..\css\style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="..\js\home.js" defer></script> 
 </head>
 <body>
   <!--Header-->
-<header class="header">
-  <nav>
-    <img src="..\images\cart logo.jpg" height="40px" alt="Cart Logo">
-    <a href="home.html">Shopping Cart</a>
-    <i class="bx bx-shopping-bag" onclick="goToCart()"></i>
-  </nav>
-</header>
-
+  <header class="header">
+    <nav>
+      <a href="home.html">
+        <img src="..\images\cart logo.jpg" height="40px" alt="Cart Logo">
+      </a>
+      <a href="home.html">Shopping Cart</a>
+      <i class="bx bx-shopping-bag" onclick="goToCart()"></i>
+    </nav>
+  </header>
 
   <!--Shopping Section-->
   <section>
@@ -31,43 +33,28 @@
         <div class="price-wrapper">
           <span class="currency">Rs</span>
           <span class="price">1800</span>
-          <div class="quantity-wrapper">
-            <button class="quantity-btn" onclick="decreaseQuantity(event)">-</button>
-            <span class="quantity">0</span>
-            <button class="quantity-btn" onclick="increaseQuantity(event)">+</button>
-          </div>
         </div>
         <button class="add-to-cart-btn" onclick="addToCart(event, 'Backpack', 1800)">Add to Cart</button>
       </div>
 
       <div class="product-box">
-        <img src="..\images\kurti.jpg" alt="Image Not Found" height="300px" width="250px"/>
+        <img src="..\images\women's kurti.jpg" alt="Image Not Found" height="300px" width="250px"/>
         <h3>Women's Kurti</h3>
         <p>Embrace elegance and grace with our exquisite collection of women's kurtis, designed to enhance your ethnic charm.</p>
         <div class="price-wrapper">
           <span class="currency">Rs</span>
           <span class="price">469</span>
-          <div class="quantity-wrapper">
-            <button class="quantity-btn" onclick="decreaseQuantity(event)">-</button>
-            <span class="quantity">0</span>
-            <button class="quantity-btn" onclick="increaseQuantity(event)">+</button>
-          </div>
         </div>
         <button class="add-to-cart-btn" onclick="addToCart(event, 'Women\'s Kurti', 469)">Add to Cart</button>
       </div>
 
       <div class="product-box">
-        <img src="..\images\frock.jpg" alt="Image Not Found" height="300px" width="250px"/>
+        <img src="..\images\girls frock.jpg" alt="Image Not Found" height="300px" width="250px"/>
         <h3>Girls Frock</h3>
         <p>Make your little princess shine with our adorable frocks, crafted with love to bring out her playful innocence.</p>
         <div class="price-wrapper">
           <span class="currency">Rs</span>
           <span class="price">1200</span>
-          <div class="quantity-wrapper">
-            <button class="quantity-btn" onclick="decreaseQuantity(event)">-</button>
-            <span class="quantity">0</span>
-            <button class="quantity-btn" onclick="increaseQuantity(event)">+</button>
-          </div>
         </div>
         <button class="add-to-cart-btn" onclick="addToCart(event, 'Girls Frock', 1200)">Add to Cart</button>
       </div>
@@ -75,100 +62,40 @@
 
     <div class="row">
       <div class="product-box">
-        <img src="..\images\hoodie.jpg" alt="Image Not Found" height="300px" width="250px"/>
+        <img src="..\images\women's hoodie.jpg" alt="Image Not Found" height="300px" width="250px"/>
         <h3>Women's Hoodie</h3>
         <p>Stay cozy and fashion-forward with our trendy women's hoodies, blending comfort and style effortlessly.</p>
         <div class="price-wrapper">
           <span class="currency">Rs</span>
           <span class="price">1940</span>
-          <div class="quantity-wrapper">
-            <button class="quantity-btn" onclick="decreaseQuantity(event)">-</button>
-            <span class="quantity">0</span>
-            <button class="quantity-btn" onclick="increaseQuantity(event)">+</button>
-          </div>
         </div>
         <button class="add-to-cart-btn" onclick="addToCart(event, 'Women\'s Hoodie', 1940)">Add to Cart</button>
       </div>
 
       <div class="product-box">
-        <img src="..\images\watch.jpg" alt="Image Not Found" height="300px" width="250px"/>
+        <img src="..\images\rolex watches celini edition.jpg" alt="Image Not Found" height="300px" width="250px"/>
         <h3>Rolex watches Celini edition</h3>
         <p>Experience luxury at its finest with the exquisite Rolex Watch Celini Edition, a timeless masterpiece that reflects your refined taste.</p>
         <div class="price-wrapper">
           <span class="currency">Rs</span>
           <span class="price">4999</span>
-          <div class="quantity-wrapper">
-            <button class="quantity-btn" onclick="decreaseQuantity(event)">-</button>
-            <span class="quantity">0</span>
-            <button class="quantity-btn" onclick="increaseQuantity(event)">+</button>
-          </div>
         </div>
         <button class="add-to-cart-btn" onclick="addToCart(event, 'Rolex watches Celini edition', 4999)">Add to Cart</button>
       </div>
 
       <div class="product-box">
-        <img src="../images/Sweatshirt.jpg" alt="Image Not Found" height="300px" width="250px"/>
+        <img src="../images/mens sweatshirts.jpg" alt="Image Not Found" height="300px" width="250px"/>
         <h3>Mens Sweatshirts</h3>
         <p>Elevate your casual wardrobe with our premium men's sweatshirts, providing unmatched comfort and effortless style.</p>
         <div class="price-wrapper">
           <span class="currency">Rs</span>
           <span class="price">600</span>
-          <div class="quantity-wrapper">
-            <button class="quantity-btn" onclick="decreaseQuantity(event)">-</button>
-            <span class="quantity">0</span>
-            <button class="quantity-btn" onclick="increaseQuantity(event)">+</button>
-          </div>
         </div>
         <button class="add-to-cart-btn" onclick="addToCart(event, 'Mens Sweatshirts', 600)">Add to Cart</button>
       </div>
     </div>
   </section>
 
-  <script>
-    function increaseQuantity(event) {
-      const quantityElement = event.target.parentElement.querySelector('.quantity');
-      let quantity = parseInt(quantityElement.innerText);
-      quantity++;
-      quantityElement.innerText = quantity;
-    }
-  
-    function decreaseQuantity(event) {
-      const quantityElement = event.target.parentElement.querySelector('.quantity');
-      let quantity = parseInt(quantityElement.innerText);
-      if (quantity > 0) {
-        quantity--;
-        quantityElement.innerText = quantity;
-      }
-    }
-  
-    function addToCart(event, productName, price) {
-      const quantityElement = event.target.parentElement.querySelector('.quantity');
-      quantityElement.innerText = '1'; // Set the quantity to 1
-      const quantity = parseInt(quantityElement.innerText);
-      const total = quantity * price;
-      const product = {
-        name: productName,
-        quantity: quantity,
-        price: price,
-        total: total
-      };
-      
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push(product);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      const goToCartConfirmed = confirm("Go to Cart?");
-      if (goToCartConfirmed) {
-        window.location.href = 'cart.html';
-      }
-    }
-
-    
-
-    function goToCart() {
-    window.location.href = 'cart.html';
-  }
-  </script>
-  
+ 
 </body>
 </html>
-

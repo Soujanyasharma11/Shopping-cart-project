@@ -1,112 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping Cart - Cart</title>
-  <link rel="stylesheet" href="..\css\style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
-    .item-image {
-      max-width: 100px; /* Adjust the desired image width */
-      height: auto;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Cart</title>
+    <link rel="stylesheet" href="..\css\style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="../js/cart.js" defer></script>
+    <style>
+        .item-image {
+            max-width: 100px; 
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-  <!--Header-->
-  <header class="header">
-    <nav>
-      <a href="home.html">
-        <img src="..\images\cart logo.jpg" height="40px" alt="Cart Logo">
-      </a>
-      <a href="home.html">Shopping Cart</a>
-    </nav>
-  </header>
+    <!--Header-->
+    <header class="header">
+        <nav>
+            <img src="..\images\cart logo.jpg" height="40px" alt="Cart Logo">
+            <a href="home.html">Shopping Cart</a>
+            <i class="bx bx-shopping-bag" onclick="goToCart()"></i>
+        </nav>
+    </header>
 
-  <!--Cart Section-->
-  <section class="cart-section">
-    <div class="cart-heading">
-      <h2>Your Cart</h2>
-    </div>
-    <div id="cart-items" class="cart-items">
-      <!-- Cart items will be dynamically added here -->
-    </div>
-    <div class="cart-total">
-      <p>Total: <span id="cart-total">0</span></p>
-    </div>
-    <div class="cart-actions">
-      <button class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
-    </div>
-  </section>
-
-  <script>
-    // Retrieve cart items from localStorage
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-
-    // Generate HTML for each cart item
-    const cartItemsContainer = document.getElementById('cart-items');
-    const cartTotalElement = document.getElementById('cart-total');
-    let cartTotal = 0;
-
-    cartItems.forEach(item => {
-      if (item.quantity > 0) { // Display only if quantity is greater than 0
-        const itemContainer = document.createElement('div');
-        itemContainer.classList.add('cart-item');
-
-        const itemImage = document.createElement('img');
-        itemImage.src = `../images/${item.name.toLowerCase()}.jpg`;
-        itemImage.alt = "Image Not Found";
-        itemImage.classList.add('item-image'); // Add the CSS class for the image size
-
-        const itemDetails = document.createElement('div');
-        itemDetails.classList.add('item-details');
-
-        const itemName = document.createElement('h3');
-        itemName.innerText = item.name;
-
-        const itemPrice = document.createElement('p');
-        itemPrice.classList.add('item-price');
-        itemPrice.innerText = `Price: Rs ${item.price}`;
-
-        const itemQuantity = document.createElement('p');
-        itemQuantity.classList.add('item-quantity');
-        itemQuantity.innerText = `Quantity: ${item.quantity}`;
-
-        const deleteIcon = document.createElement('i');
-        deleteIcon.classList.add('fas', 'fa-trash-alt');
-        deleteIcon.addEventListener('click', () => removeItem(item.name));
-
-        itemDetails.appendChild(itemName);
-        itemDetails.appendChild(itemPrice);
-        itemDetails.appendChild(itemQuantity);
-        itemDetails.appendChild(deleteIcon);
-
-        itemContainer.appendChild(itemImage);
-        itemContainer.appendChild(itemDetails);
-
-        cartItemsContainer.appendChild(itemContainer);
-
-        const totalPrice = item.price * item.quantity;
-        cartTotal += totalPrice;
-      }
-    });
-
-    cartTotalElement.innerText = cartTotal.toFixed(2);
-
-    // Clear cart and remove items from localStorage
-    function clearCart() {
-      localStorage.removeItem('cart');
-      cartItemsContainer.innerHTML = '';
-      cartTotalElement.innerText = '0';
-    }
-
-    // Remove item from the cart
-    function removeItem(productName) {
-      const updatedItems = cartItems.filter(item => item.name !== productName);
-      localStorage.setItem('cart', JSON.stringify(updatedItems));
-      location.reload(); // Refresh the page to reflect the changes
-    }
-  </script>
+    
+    <section class="cart-section">
+        <div class="cart-heading">
+            <h2>Your Cart</h2>
+        </div>
+        <div id="cart-items" class="cart-items">
+        </div>
+        <div class="cart-total">
+            <p>Total: <span id="cart-total">0</span></p>
+        </div>
+        <div class="cart-actions">
+            <button class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+            <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+        </div>
+    </section>
+    <button class="back-button" onclick="goBack()">&larr; </button>
 </body>
 </html>
