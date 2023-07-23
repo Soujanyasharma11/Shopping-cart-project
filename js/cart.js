@@ -100,31 +100,37 @@ function goBack() {
 }
 
 function placeOrder() {
-    if (cartItems.length === 0) {
-        alert("Cart empty! Please select an item.");
-        window.location.href = "home.html";
-    } else {
-        const confirmed = confirm("Order Placed. Thank you for Shopping!");
-        if (confirmed) {
-            localStorage.removeItem('cart');
-            location.reload();
-        }
-    }
+  if (cartItems.length === 0) {
+      alert("Cart empty! Please select an item.");
+      window.location.href = "home.html";
+  } else {
+      const confirmed = confirm("Do you want to place an order?");
+      if (confirmed) {
+          alert("Order Placed. Thank you for Shopping!");
+          localStorage.removeItem('cart');
+          location.reload();
+      }
+  }
 }
 
 function goToCart() {
     window.location.href = 'cart.html';
 }
 
-
 function renderCartActions() {
-    const cartActionsDiv = document.querySelector('.cart-actions');
-    const clearCartButton = document.createElement('button');
-    clearCartButton.classList.add('clear-cart-btn');
-    clearCartButton.textContent = 'Clear Cart';
-    clearCartButton.onclick = clearCart;
-    cartActionsDiv.appendChild(clearCartButton);
+  const cartActionsDiv = document.querySelector('.cart-actions');
+  const clearCartButton = document.querySelector('.clear-cart-btn');
+
+  // Check if the "Clear Cart" button already exists, if not, create and append it
+  if (!clearCartButton) {
+      const clearCartButton = document.createElement('button');
+      clearCartButton.classList.add('clear-cart-btn');
+      clearCartButton.textContent = 'Clear Cart';
+      clearCartButton.onclick = clearCart;
+      cartActionsDiv.appendChild(clearCartButton);
+  }
 }
+
 
 
 function updateCartActionsVisibility() {
